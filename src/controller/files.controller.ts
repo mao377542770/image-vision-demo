@@ -43,9 +43,12 @@ export class FilesController implements BaseController {
         for await (const file of files) {
           // ファイルのメモリバッファ
           // console.info(file.buffer);
+
+          /* Herokuのデスクメモリがないため、ファイル保存処理が飛ばす
           fs.writeFile(`./uploads/${file.originalname}`,file.buffer, (err) => {
             if (err) return console.error(err)
           })
+          */
           resMessage += `upload success, file name:${file.originalname} \n`;
 
           // 画像解析を行うリクエスト
