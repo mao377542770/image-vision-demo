@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "nodemon  --exec ts-node src/index.ts",
     "build": "tsc",
     "start": "nodemon  --exec ts-node src/index.ts"
   },
