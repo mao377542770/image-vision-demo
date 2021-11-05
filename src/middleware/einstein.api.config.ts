@@ -34,7 +34,7 @@ const EINSTEIN_VISION_URL = process.env.EINSTEIN_VISION_URL || 'https://api.eins
 const EINSTEIN_VISION_ACCOUNT_ID = process.env.EINSTEIN_VISION_ACCOUNT_ID || 'r.tachibana-1361596@itforce.co.jp';
 const API_VERSION = process.env.API_VERSION || 'v2';
 const BASE_URL = EINSTEIN_VISION_URL + API_VERSION;
-const EINSTEIN_VISION_MODEL_ID = process.env.EINSTEIN_VISION_MODEL_ID || 'GeneralImageClassifier';
+const EINSTEIN_VISION_MODEL_ID = process.env.EINSTEIN_VISION_MODEL_ID || 'KASMYMCVG2JXSVJ7HHWNYCE5KQ';
 
 const apiConfig = {
   //各種定数の取得・定義

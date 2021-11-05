@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "nodemon  --exec ts-node src/index.ts",
     "build": "tsc",
-    "start": "nodemon  --exec ts-node src/index.ts"
+    "dev": "nodemon  --exec ts-node src/index.ts",
+    "start" :"node build/src/index.js"
   },
   "keywords": [],
   "author": "",
