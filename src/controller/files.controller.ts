@@ -51,10 +51,11 @@ export class FilesController implements BaseController {
           // 画像解析を行うリクエスト
           if(!this.accessToken) {
             this.accessToken = await this.einsteinService.getJWTByApiConfig();
-            var resultObj = await this.einsteinService.doImagePrediction(this.accessToken, file.buffer);
-            resMessage += JSON.stringify(resultObj);
-            resMessage += '\n';
           }
+
+          var resultObj = await this.einsteinService.doImagePrediction(this.accessToken, file.buffer);
+          resMessage += JSON.stringify(resultObj);
+          resMessage += '\n';
         }
         res.send(resMessage);
       } else {
