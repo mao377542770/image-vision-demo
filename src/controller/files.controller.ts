@@ -52,9 +52,7 @@ export class FilesController implements BaseController {
           resMessage += `upload success, file name:${file.originalname} \n`;
 
           // 画像解析を行うリクエスト
-          if(!this.accessToken) {
-            this.accessToken = await this.einsteinService.getJWTByApiConfig();
-          }
+          this.accessToken = await this.einsteinService.getJWTByApiConfig();
 
           var resultObj = await this.einsteinService.doImagePrediction(this.accessToken, file.buffer);
           resMessage += JSON.stringify(resultObj);
