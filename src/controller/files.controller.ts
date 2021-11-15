@@ -26,6 +26,9 @@ export class FilesController implements BaseController {
     this.router.post('/uploads',
         this.upload.array('file', FilesController.MAX_FILES_COUNT),
         this.uploadFiles);
+    this.router.post('/uploadzip',
+        this.upload.single('file'),
+        this.uploadZip);
     this.router.get('/token',
         this.getToken);
   }
@@ -63,6 +66,19 @@ export class FilesController implements BaseController {
         res.send('upload fail!');
       }
     } catch (err) {
+      res.sendStatus(400);
+    }
+  }
+
+  uploadZip = async (req: Request, res: Response) => {
+    try {
+      if(req.file) {
+        this.accessToken = await this.einsteinService.getJWTByApiConfig();
+        var resultObj = await this.einsteinService.createDataSet(this.accessToken, req.file.buffer, req.file.originalname)
+        res.json(resultObj);
+      }
+    } catch (err) {
+      console.error(err);
       res.sendStatus(400);
     }
   }

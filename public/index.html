@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>Einstein Vision DataSet Manage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/assets/styles/salesforce-lightning-design-system.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/styles/jquery.json-viewer.css"/>
+    <style>
+        .slds-avatar_large{
+            width: 6rem;
+            font-size: 14px;
+        }
+        .setinfo .source{
+            display: none;
+        }
+        .setinfo:hover .source{
+            display: block;
+        }
+        .source {
+            width: 70%;
+            height: 13rem;
+        }
+    </style>
+</head>
+
+<body style="padding:1rem">
+    <header class="slds-text-heading_large">
+        <h1>Einstein Vision DataSet Manage</h1>
+    </header>
+
+    <section class="slds-box">
+        <form action="/uploadzip" method="post" enctype="multipart/form-data" accept="zip">
+            <h2><b class="slds-text-heading_small">ZIP ファイルアップロード (DataSet 作成)</b></h2>
+            <input type="file" name="file">
+            <input type="submit" value="アップロード">
+        </form>
+    </section>
+
+    <section class="slds-box slds-is-relative slds-m-top_xx-small">
+        <b class="slds-text-heading_small">Dataset list</b>
+        <div id="spinner" role="status" class="slds-spinner slds-spinner_medium">
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+        <ul>
+            <li id="dataset">
+            </li>
+        </ul>
+    </section>
+
+    <section class="slds-box slds-m-top_xx-small">
+        <b class="slds-text-heading_small">DataSetトレーニング</b>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="ipt-datasetId" id="fixed-text-label">Dataset ID:</label>
+            <div class="slds-form-element__control">
+                <input type="text" id="ipt-datasetId" placeholder="" class="slds-input"/>
+            </div>
+        </div>
+
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="ipt-datasetId" id="fixed-text-label">Model名:</label>
+            <div class="slds-form-element__control">
+                <input type="text" id="ipt-modelName" placeholder="" class="slds-input"/>
+            </div>
+        </div>
+
+        <button class="slds-m-top_xx-small slds-button slds-button_outline-brand" onclick="train()">トレーニング開始</button>
+
+        <pre id="model-result" class="source slds-box slds-theme_default"></pre>
+    </section>
+
+    <section class="slds-box slds-is-relative slds-m-top_xx-small">
+        <div id="spinner2" role="status" class="slds-spinner slds-spinner_medium">
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+        <b class="slds-text-heading_small">Modelリスト</b>
+        <div id="modelList">
+
+        </div>
+    </section>
+
+
+    <!-- スクリプト読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script/index.js"></script>
+    <script src="script/jquery.json-viewer.js"></script>
+</body>
+
+</html>

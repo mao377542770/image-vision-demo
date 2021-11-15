@@ -2,3 +2,5 @@ build
 node_modules
 uploads
 yarn-error.log
+public/assets/images
+public/assets/icons

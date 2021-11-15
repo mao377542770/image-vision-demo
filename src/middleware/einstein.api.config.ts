@@ -1,6 +1,3 @@
-import { readFileSync } from "fs";
-import path from "path";
-
 const EINSTEIN_VISION_PRIVATE_KEY = process.env.EINSTEIN_VISION_PRIVATE_KEY ||
 `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAj7rkUd4OiUMgvxP4WJcs58PgnQ7DW5qvaXLX+EvcuYC356q6
